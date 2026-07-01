@@ -3,92 +3,773 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ハコト実験室 | GitHub Pagesで作る自作ホームページ</title>
-  <meta name="description" content="ハコト実験室は、HTML/CSS/JavaScriptで作成した自作ホームページの公開テストサイトです。">
+  <title>ハコト実験室 | 見て、触って、育てる自作ホームページ</title>
+  <meta name="description" content="ハコト実験室は、HTML、CSS、JavaScriptで作る自作ホームページの公開プロジェクトです。アイデア、制作記録、実験的なコンテンツを発信します。">
+  <meta name="theme-color" content="#0f172a">
+  <meta property="og:title" content="ハコト実験室">
+  <meta property="og:description" content="HTML、CSS、JavaScriptで作る自作ホームページの公開プロジェクト。">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://hacot0600.github.io/test-homepage/">
   <style>
+    :root {
+      --ink: #101828;
+      --muted: #667085;
+      --line: #d0d5dd;
+      --paper: #f8fafc;
+      --white: #ffffff;
+      --navy: #0f172a;
+      --cyan: #06b6d4;
+      --green: #22c55e;
+      --amber: #f59e0b;
+      --red: #ef4444;
+      --shadow: 0 22px 60px rgba(15, 23, 42, 0.18);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       margin: 0;
-      font-family: Arial, "Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif;
-      background: #f5f7fb;
-      color: #222;
+      font-family: Arial, "Hiragino Kaku Gothic ProN", "Yu Gothic", Meiryo, sans-serif;
+      color: var(--ink);
+      background: var(--paper);
       line-height: 1.7;
     }
 
-    header {
-      background: #1f2937;
-      color: white;
-      padding: 48px 20px;
-      text-align: center;
+    a {
+      color: inherit;
+      text-decoration: none;
     }
 
-    header h1 {
-      margin: 0;
-      font-size: 32px;
+    img {
+      max-width: 100%;
+      display: block;
     }
 
-    header p {
-      margin-top: 12px;
-      color: #d1d5db;
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+      background: rgba(15, 23, 42, 0.86);
+      color: var(--white);
+      backdrop-filter: blur(18px);
     }
 
-    main {
-      max-width: 900px;
-      margin: 32px auto;
-      padding: 0 20px;
+    .nav {
+      width: min(1120px, calc(100% - 40px));
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 72px;
+      gap: 24px;
     }
 
-    section {
-      background: white;
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 800;
+      letter-spacing: 0.02em;
+    }
+
+    .brand-mark {
+      width: 34px;
+      height: 34px;
+      display: grid;
+      place-items: center;
+      border-radius: 10px;
+      background: linear-gradient(135deg, var(--cyan), var(--green));
+      color: var(--navy);
+      box-shadow: 0 10px 24px rgba(6, 182, 212, 0.35);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      font-size: 14px;
+      color: #dbeafe;
+    }
+
+    .nav-links a {
+      opacity: 0.86;
+    }
+
+    .nav-links a:hover {
+      opacity: 1;
+    }
+
+    .hero {
+      min-height: 720px;
+      color: var(--white);
+      background:
+        linear-gradient(120deg, rgba(15, 23, 42, 0.94), rgba(15, 23, 42, 0.54)),
+        radial-gradient(circle at 78% 18%, rgba(34, 197, 94, 0.48), transparent 34%),
+        radial-gradient(circle at 18% 24%, rgba(6, 182, 212, 0.42), transparent 32%),
+        linear-gradient(135deg, #0f172a 0%, #164e63 48%, #14532d 100%);
+      overflow: hidden;
+      position: relative;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: auto -120px -180px auto;
+      width: 520px;
+      height: 520px;
+      background:
+        linear-gradient(90deg, transparent 23px, rgba(255, 255, 255, 0.08) 24px),
+        linear-gradient(0deg, transparent 23px, rgba(255, 255, 255, 0.08) 24px);
+      background-size: 48px 48px;
+      transform: rotate(-12deg);
+      opacity: 0.8;
+    }
+
+    .hero-inner {
+      width: min(1120px, calc(100% - 40px));
+      margin: 0 auto;
+      min-height: 648px;
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      align-items: center;
+      gap: 56px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 12px;
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      border-radius: 999px;
+      color: #cffafe;
+      background: rgba(255, 255, 255, 0.08);
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .pulse {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: var(--green);
+      box-shadow: 0 0 0 8px rgba(34, 197, 94, 0.14);
+    }
+
+    h1 {
+      margin: 26px 0 18px;
+      font-size: clamp(44px, 7vw, 84px);
+      line-height: 1.04;
+      letter-spacing: 0;
+    }
+
+    .lead {
+      max-width: 660px;
+      margin: 0 0 30px;
+      color: #dbeafe;
+      font-size: clamp(17px, 2.2vw, 21px);
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 36px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      min-height: 48px;
+      padding: 12px 18px;
+      border-radius: 8px;
+      border: 1px solid transparent;
+      font-weight: 800;
+      cursor: pointer;
+      transition: transform 180ms ease, box-shadow 180ms ease, background 180ms ease;
+    }
+
+    .button:hover {
+      transform: translateY(-2px);
+    }
+
+    .button-primary {
+      background: var(--white);
+      color: var(--navy);
+      box-shadow: 0 18px 36px rgba(0, 0, 0, 0.22);
+    }
+
+    .button-secondary {
+      border-color: rgba(255, 255, 255, 0.28);
+      color: var(--white);
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    .hero-stats {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+      max-width: 620px;
+    }
+
+    .stat {
+      padding: 14px;
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    .stat strong {
+      display: block;
+      font-size: 24px;
+      line-height: 1.2;
+    }
+
+    .stat span {
+      display: block;
+      color: #cbd5e1;
+      font-size: 13px;
+    }
+
+    .showcase {
+      position: relative;
+      min-height: 430px;
+    }
+
+    .screen {
+      position: absolute;
+      inset: 40px 0 auto auto;
+      width: min(430px, 100%);
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.96);
+      color: var(--ink);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .screen-bar {
+      display: flex;
+      gap: 7px;
+      padding: 12px;
+      background: #e2e8f0;
+      border-bottom: 1px solid #cbd5e1;
+    }
+
+    .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 999px;
+      background: var(--red);
+    }
+
+    .dot:nth-child(2) {
+      background: var(--amber);
+    }
+
+    .dot:nth-child(3) {
+      background: var(--green);
+    }
+
+    .screen-body {
       padding: 24px;
-      margin-bottom: 20px;
-      border-radius: 12px;
-      box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+    }
+
+    .mini-title {
+      margin: 0 0 14px;
+      font-size: 25px;
+      line-height: 1.35;
+    }
+
+    .mini-line {
+      height: 10px;
+      border-radius: 999px;
+      background: #e2e8f0;
+      margin: 12px 0;
+    }
+
+    .mini-line:nth-of-type(2) {
+      width: 78%;
+    }
+
+    .mini-line:nth-of-type(3) {
+      width: 58%;
+    }
+
+    .mini-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+      margin-top: 22px;
+    }
+
+    .mini-card {
+      min-height: 92px;
+      border-radius: 8px;
+      background: #f1f5f9;
+      border: 1px solid #e2e8f0;
+      padding: 14px;
+    }
+
+    .mini-card b {
+      display: block;
+      font-size: 22px;
+      color: #0891b2;
+    }
+
+    .code-chip {
+      position: absolute;
+      left: 0;
+      bottom: 34px;
+      width: min(330px, 88%);
+      padding: 18px;
+      border-radius: 8px;
+      background: rgba(2, 6, 23, 0.88);
+      border: 1px solid rgba(148, 163, 184, 0.28);
+      box-shadow: var(--shadow);
+      color: #bae6fd;
+      font-family: Consolas, Monaco, monospace;
+      font-size: 14px;
+    }
+
+    .section {
+      padding: 86px 0;
+    }
+
+    .container {
+      width: min(1120px, calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    .section-title {
+      max-width: 720px;
+      margin-bottom: 34px;
+    }
+
+    .section-title p {
+      margin: 10px 0 0;
+      color: var(--muted);
+      font-size: 17px;
     }
 
     h2 {
-      margin-top: 0;
-      color: #111827;
+      margin: 0;
+      font-size: clamp(30px, 4vw, 46px);
+      line-height: 1.18;
+      letter-spacing: 0;
     }
 
-    footer {
-      text-align: center;
-      padding: 24px;
-      color: #666;
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .feature {
+      padding: 26px;
+      border-radius: 8px;
+      border: 1px solid var(--line);
+      background: var(--white);
+      box-shadow: 0 12px 30px rgba(15, 23, 42, 0.06);
+    }
+
+    .feature-icon {
+      width: 44px;
+      height: 44px;
+      display: grid;
+      place-items: center;
+      border-radius: 8px;
+      margin-bottom: 18px;
+      color: var(--navy);
+      background: #cffafe;
+      font-weight: 900;
+    }
+
+    .feature:nth-child(2) .feature-icon {
+      background: #dcfce7;
+    }
+
+    .feature:nth-child(3) .feature-icon {
+      background: #fef3c7;
+    }
+
+    .feature h3 {
+      margin: 0 0 10px;
+      font-size: 20px;
+    }
+
+    .feature p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .band {
+      background: var(--navy);
+      color: var(--white);
+    }
+
+    .works {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 28px;
+      align-items: stretch;
+    }
+
+    .work-panel {
+      padding: 30px;
+      border-radius: 8px;
+      background: #12213a;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+    }
+
+    .work-panel p {
+      color: #cbd5e1;
+    }
+
+    .timeline {
+      display: grid;
+      gap: 14px;
+    }
+
+    .step {
+      display: grid;
+      grid-template-columns: 52px 1fr;
+      gap: 16px;
+      padding: 18px;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+    }
+
+    .step-number {
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      border-radius: 8px;
+      background: var(--cyan);
+      color: var(--navy);
+      font-weight: 900;
+    }
+
+    .step h3 {
+      margin: 0 0 4px;
+      font-size: 18px;
+    }
+
+    .step p {
+      margin: 0;
+      color: #cbd5e1;
+    }
+
+    .contact {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 26px;
+      align-items: center;
+      padding: 34px;
+      border-radius: 8px;
+      background: var(--white);
+      border: 1px solid var(--line);
+      box-shadow: 0 16px 42px rgba(15, 23, 42, 0.08);
+    }
+
+    .contact h2 {
+      font-size: clamp(28px, 4vw, 42px);
+    }
+
+    .contact p {
+      color: var(--muted);
+      margin: 10px 0 0;
+    }
+
+    .button-dark {
+      background: var(--navy);
+      color: var(--white);
+      min-width: 180px;
+    }
+
+    .site-footer {
+      padding: 30px 0;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .footer-inner {
+      width: min(1120px, calc(100% - 40px));
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity 560ms ease, transform 560ms ease;
+    }
+
+    .reveal.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 860px) {
+      .nav {
+        min-height: 64px;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .hero {
+        min-height: auto;
+      }
+
+      .hero-inner {
+        grid-template-columns: 1fr;
+        min-height: auto;
+        padding: 72px 0;
+        gap: 34px;
+      }
+
+      .showcase {
+        min-height: 360px;
+      }
+
+      .screen {
+        position: relative;
+        inset: auto;
+        width: 100%;
+      }
+
+      .code-chip {
+        left: 18px;
+        bottom: 0;
+      }
+
+      .feature-grid,
+      .works,
+      .contact {
+        grid-template-columns: 1fr;
+      }
+
+      .contact {
+        padding: 26px;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .hero-stats {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-actions {
+        align-items: stretch;
+      }
+
+      .button {
+        width: 100%;
+      }
+
+      .mini-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .section {
+        padding: 64px 0;
+      }
     }
   </style>
 </head>
 <body>
-  <header>
-    <h1>ハコト実験室 | GitHub Pagesで作る自作ホームページ</h1>
-    <p>GitHub Pagesで公開する練習用サイトです。</p>
+  <header class="site-header">
+    <nav class="nav" aria-label="メインナビゲーション">
+      <a class="brand" href="#top" aria-label="ハコト実験室トップへ">
+        <span class="brand-mark">H</span>
+        <span>ハコト実験室</span>
+      </a>
+      <div class="nav-links">
+        <a href="#about">特徴</a>
+        <a href="#works">制作方針</a>
+        <a href="#contact">連絡</a>
+      </div>
+    </nav>
   </header>
 
-  <main>
-    <section>
-      <h2>このサイトについて</h2>
-      <p>
-        HTML、CSS、JavaScriptを使って作成した自作ホームページです。
-        まずは公開テストとして、このページを表示しています。
-      </p>
+  <main id="top">
+    <section class="hero">
+      <div class="hero-inner">
+        <div>
+          <span class="eyebrow"><span class="pulse"></span> 自作ホームページ公開中</span>
+          <h1>アイデアを、見える場所へ。</h1>
+          <p class="lead">
+            ハコト実験室は、HTML、CSS、JavaScriptで育てる自作ホームページです。
+            小さな実験から、見せられる作品へ。ここから少しずつ形にしていきます。
+          </p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#about">ページを見る</a>
+            <a class="button button-secondary" href="#works">制作の流れ</a>
+          </div>
+          <div class="hero-stats" aria-label="サイトの特徴">
+            <div class="stat">
+              <strong>HTML</strong>
+              <span>構造をわかりやすく</span>
+            </div>
+            <div class="stat">
+              <strong>CSS</strong>
+              <span>印象に残る見た目</span>
+            </div>
+            <div class="stat">
+              <strong>JS</strong>
+              <span>動きと操作感を追加</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="showcase" aria-label="ホームページのプレビュー風ビジュアル">
+          <div class="screen">
+            <div class="screen-bar">
+              <span class="dot"></span>
+              <span class="dot"></span>
+              <span class="dot"></span>
+            </div>
+            <div class="screen-body">
+              <h2 class="mini-title">検索で見つかる、印象で残る。</h2>
+              <div class="mini-line"></div>
+              <div class="mini-line"></div>
+              <div class="mini-line"></div>
+              <div class="mini-grid">
+                <div class="mini-card"><b>01</b>公開</div>
+                <div class="mini-card"><b>02</b>改善</div>
+                <div class="mini-card"><b>03</b>発信</div>
+                <div class="mini-card"><b>04</b>成長</div>
+              </div>
+            </div>
+          </div>
+          <div class="code-chip">
+            &lt;title&gt;ハコト実験室&lt;/title&gt;<br>
+            &lt;h1&gt;アイデアを、見える場所へ。&lt;/h1&gt;
+          </div>
+        </div>
+      </div>
     </section>
 
-    <section>
-      <h2>掲載内容</h2>
-      <p>
-        今後ここに、自己紹介、団体紹介、企業紹介、イベント情報などを追加できます。
-      </p>
+    <section class="section" id="about">
+      <div class="container">
+        <div class="section-title reveal">
+          <h2>ただ置くだけではなく、伝わるトップページへ。</h2>
+          <p>
+            目を引くファーストビュー、検索で伝わるタイトル、スマホでも読みやすい構成をまとめました。
+          </p>
+        </div>
+        <div class="feature-grid">
+          <article class="feature reveal">
+            <div class="feature-icon">A</div>
+            <h3>最初の3秒で印象づける</h3>
+            <p>大きな見出し、強い背景、はっきりした導線で、開いた瞬間に何のサイトか伝えます。</p>
+          </article>
+          <article class="feature reveal">
+            <div class="feature-icon">B</div>
+            <h3>検索に向けた言葉設計</h3>
+            <p>タイトル、説明文、見出しに「ハコト実験室」という独自ワードを入れ、認識されやすくします。</p>
+          </article>
+          <article class="feature reveal">
+            <div class="feature-icon">C</div>
+            <h3>育てやすい1ファイル構成</h3>
+            <p>最初は1つのHTMLで管理し、慣れてきたらCSSやJavaScriptを別ファイルに分けられます。</p>
+          </article>
+        </div>
+      </div>
     </section>
 
-    <section>
-      <h2>次にやること</h2>
-      <p>
-        このページをGitHub Pagesで公開し、URLを取得します。
-      </p>
+    <section class="section band" id="works">
+      <div class="container">
+        <div class="works">
+          <div class="work-panel reveal">
+            <h2>次に足すなら、実績・プロフィール・お問い合わせ。</h2>
+            <p>
+              トップページは入口です。今後は自己紹介、制作物、活動内容、問い合わせ先を追加すると、
+              検索した人が「何者か」「何をしているか」を判断しやすくなります。
+            </p>
+          </div>
+          <div class="timeline">
+            <div class="step reveal">
+              <div class="step-number">1</div>
+              <div>
+                <h3>タイトルを決める</h3>
+                <p>検索で狙う独自ワードを決め、ページ全体で統一します。</p>
+              </div>
+            </div>
+            <div class="step reveal">
+              <div class="step-number">2</div>
+              <div>
+                <h3>内容を増やす</h3>
+                <p>プロフィール、作品、写真、活動記録などの具体情報を追加します。</p>
+              </div>
+            </div>
+            <div class="step reveal">
+              <div class="step-number">3</div>
+              <div>
+                <h3>Search Consoleで再申請</h3>
+                <p>更新後にURL検査からインデックス登録をリクエストします。</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="contact">
+      <div class="container">
+        <div class="contact reveal">
+          <div>
+            <h2>ここから本番用に育てていきます。</h2>
+            <p>
+              サイト名、紹介文、掲載したい内容が決まったら、このトップページを本番仕様に調整できます。
+            </p>
+          </div>
+          <a class="button button-dark" href="#top">上に戻る</a>
+        </div>
+      </div>
     </section>
   </main>
 
-  <footer>
-    <small>&copy; 2026 test-homepage</small>
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <span>&copy; 2026 ハコト実験室</span>
+      <span>Built with HTML / CSS / JavaScript</span>
+    </div>
   </footer>
+
+  <script>
+    const revealTargets = document.querySelectorAll(".reveal");
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-visible");
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.16 });
+
+    revealTargets.forEach((target) => observer.observe(target));
+  </script>
 </body>
 </html>
