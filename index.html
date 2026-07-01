@@ -5,24 +5,27 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>HACOT WEB | 個人・小規模事業者向けホームページ制作</title>
   <meta name="description" content="HACOT WEBは個人・小規模事業者向けに内容整理・デザイン・スマホ対応・公開まで一貫して行うホームページ制作サービスです。">
-  <meta name="theme-color" content="#0f172a">
+  <meta name="theme-color" content="#111827">
   <meta property="og:title" content="HACOT WEB">
   <meta property="og:description" content="事業の魅力を整理し相談につながるホームページへ。">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://hacot0600.github.io/test-homepage/">
   <style>
     :root {
-      --ink: #101828;
-      --muted: #667085;
-      --line: #d0d5dd;
-      --paper: #f8fafc;
+      --ink: #111827;
+      --soft-ink: #374151;
+      --muted: #6b7280;
+      --line: #d7dde8;
+      --paper: #f6f8fb;
       --white: #ffffff;
-      --navy: #0f172a;
-      --cyan: #06b6d4;
-      --green: #22c55e;
-      --amber: #f59e0b;
-      --red: #ef4444;
-      --shadow: 0 22px 60px rgba(15, 23, 42, 0.18);
+      --navy: #111827;
+      --blue: #2563eb;
+      --blue-dark: #1d4ed8;
+      --sky: #e0f2fe;
+      --green: #16a34a;
+      --cream: #fff7ed;
+      --orange: #f97316;
+      --shadow: 0 24px 70px rgba(17, 24, 39, 0.16);
     }
 
     * {
@@ -35,10 +38,11 @@
 
     body {
       margin: 0;
-      font-family: Arial, "Hiragino Kaku Gothic ProN", "Yu Gothic", Meiryo, sans-serif;
       color: var(--ink);
       background: var(--paper);
-      line-height: 1.7;
+      font-family: Arial, "Hiragino Kaku Gothic ProN", "Yu Gothic", Meiryo, sans-serif;
+      line-height: 1.75;
+      letter-spacing: 0;
     }
 
     a {
@@ -46,100 +50,96 @@
       text-decoration: none;
     }
 
-    img {
-      max-width: 100%;
-      display: block;
+    button,
+    input,
+    textarea,
+    select {
+      font: inherit;
     }
 
     .site-header {
       position: sticky;
       top: 0;
-      z-index: 20;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.12);
-      background: rgba(15, 23, 42, 0.86);
-      color: var(--white);
+      z-index: 50;
+      background: rgba(255, 255, 255, 0.9);
+      border-bottom: 1px solid rgba(215, 221, 232, 0.86);
       backdrop-filter: blur(18px);
     }
 
     .nav {
       width: min(1120px, calc(100% - 40px));
+      min-height: 72px;
       margin: 0 auto;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      min-height: 72px;
-      gap: 24px;
+      gap: 22px;
     }
 
     .brand {
       display: flex;
       align-items: center;
-      gap: 12px;
-      font-weight: 800;
-      letter-spacing: 0.02em;
+      gap: 11px;
+      font-weight: 900;
+      color: var(--navy);
     }
 
     .brand-mark {
-      width: 34px;
-      height: 34px;
+      width: 36px;
+      height: 36px;
       display: grid;
       place-items: center;
-      border-radius: 10px;
-      background: linear-gradient(135deg, var(--cyan), var(--green));
-      color: var(--navy);
-      box-shadow: 0 10px 24px rgba(6, 182, 212, 0.35);
+      border-radius: 8px;
+      color: var(--white);
+      background: linear-gradient(135deg, var(--blue), #38bdf8);
+      box-shadow: 0 12px 28px rgba(37, 99, 235, 0.25);
     }
 
     .nav-links {
       display: flex;
       align-items: center;
       gap: 18px;
+      color: var(--soft-ink);
       font-size: 14px;
-      color: #dbeafe;
+      font-weight: 700;
     }
 
-    .nav-links a {
-      opacity: 0.86;
-    }
-
-    .nav-links a:hover {
-      opacity: 1;
+    .nav-cta {
+      padding: 9px 13px;
+      border-radius: 8px;
+      color: var(--white);
+      background: var(--navy);
     }
 
     .hero {
-      min-height: 720px;
+      position: relative;
+      overflow: hidden;
       color: var(--white);
       background:
-        linear-gradient(120deg, rgba(15, 23, 42, 0.94), rgba(15, 23, 42, 0.54)),
-        radial-gradient(circle at 78% 18%, rgba(34, 197, 94, 0.48), transparent 34%),
-        radial-gradient(circle at 18% 24%, rgba(6, 182, 212, 0.42), transparent 32%),
-        linear-gradient(135deg, #0f172a 0%, #164e63 48%, #14532d 100%);
-      overflow: hidden;
-      position: relative;
+        linear-gradient(115deg, rgba(17, 24, 39, 0.96), rgba(17, 24, 39, 0.76)),
+        radial-gradient(circle at 80% 22%, rgba(37, 99, 235, 0.42), transparent 32%),
+        radial-gradient(circle at 22% 18%, rgba(14, 165, 233, 0.38), transparent 28%),
+        #111827;
     }
 
     .hero::after {
       content: "";
       position: absolute;
-      inset: auto -120px -180px auto;
-      width: 520px;
-      height: 520px;
-      background:
-        linear-gradient(90deg, transparent 23px, rgba(255, 255, 255, 0.08) 24px),
-        linear-gradient(0deg, transparent 23px, rgba(255, 255, 255, 0.08) 24px);
-      background-size: 48px 48px;
-      transform: rotate(-12deg);
-      opacity: 0.8;
+      inset: auto -180px -220px auto;
+      width: 620px;
+      height: 620px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.07);
     }
 
     .hero-inner {
       width: min(1120px, calc(100% - 40px));
+      min-height: 700px;
       margin: 0 auto;
-      min-height: 648px;
       display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
+      grid-template-columns: 1.05fr 0.95fr;
       align-items: center;
-      gap: 56px;
+      gap: 54px;
       position: relative;
       z-index: 1;
     }
@@ -147,44 +147,43 @@
     .eyebrow {
       display: inline-flex;
       align-items: center;
-      gap: 8px;
+      gap: 9px;
       padding: 8px 12px;
-      border: 1px solid rgba(255, 255, 255, 0.22);
+      border: 1px solid rgba(255, 255, 255, 0.18);
       border-radius: 999px;
-      color: #cffafe;
       background: rgba(255, 255, 255, 0.08);
+      color: #dbeafe;
       font-size: 13px;
-      font-weight: 700;
+      font-weight: 800;
     }
 
-    .pulse {
+    .eyebrow-dot {
       width: 8px;
       height: 8px;
       border-radius: 999px;
-      background: var(--green);
-      box-shadow: 0 0 0 8px rgba(34, 197, 94, 0.14);
+      background: #22c55e;
+      box-shadow: 0 0 0 7px rgba(34, 197, 94, 0.13);
     }
 
     h1 {
       margin: 26px 0 18px;
-      font-size: clamp(44px, 7vw, 84px);
-      line-height: 1.04;
+      font-size: clamp(42px, 6.4vw, 78px);
+      line-height: 1.08;
       letter-spacing: 0;
     }
 
-    .lead {
-      max-width: 660px;
-      margin: 0 0 30px;
+    .hero-lead {
+      max-width: 690px;
+      margin: 0 0 28px;
       color: #dbeafe;
-      font-size: clamp(17px, 2.2vw, 21px);
+      font-size: clamp(17px, 2.1vw, 20px);
     }
 
     .hero-actions {
       display: flex;
       flex-wrap: wrap;
-      align-items: center;
-      gap: 14px;
-      margin-bottom: 36px;
+      gap: 13px;
+      margin-bottom: 28px;
     }
 
     .button {
@@ -194,10 +193,10 @@
       gap: 8px;
       min-height: 48px;
       padding: 12px 18px;
-      border-radius: 8px;
       border: 1px solid transparent;
-      font-weight: 800;
+      border-radius: 8px;
       cursor: pointer;
+      font-weight: 900;
       transition: transform 180ms ease, box-shadow 180ms ease, background 180ms ease;
     }
 
@@ -206,146 +205,181 @@
     }
 
     .button-primary {
-      background: var(--white);
       color: var(--navy);
-      box-shadow: 0 18px 36px rgba(0, 0, 0, 0.22);
+      background: var(--white);
+      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.22);
     }
 
     .button-secondary {
-      border-color: rgba(255, 255, 255, 0.28);
       color: var(--white);
+      border-color: rgba(255, 255, 255, 0.26);
       background: rgba(255, 255, 255, 0.08);
     }
 
-    .hero-stats {
+    .trust-strip {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 12px;
-      max-width: 620px;
+      gap: 10px;
+      max-width: 690px;
     }
 
-    .stat {
-      padding: 14px;
-      border: 1px solid rgba(255, 255, 255, 0.16);
+    .trust-item {
+      padding: 12px 14px;
+      border: 1px solid rgba(255, 255, 255, 0.14);
       border-radius: 8px;
       background: rgba(255, 255, 255, 0.08);
-    }
-
-    .stat strong {
-      display: block;
-      font-size: 24px;
-      line-height: 1.2;
-    }
-
-    .stat span {
-      display: block;
-      color: #cbd5e1;
+      color: #e5edff;
       font-size: 13px;
+      font-weight: 800;
     }
 
-    .showcase {
+    .hero-visual {
       position: relative;
-      min-height: 430px;
+      min-height: 460px;
     }
 
-    .screen {
+    .browser {
       position: absolute;
-      inset: 40px 0 auto auto;
-      width: min(430px, 100%);
+      top: 32px;
+      right: 0;
+      width: min(470px, 100%);
+      overflow: hidden;
       border: 1px solid rgba(255, 255, 255, 0.22);
       border-radius: 8px;
-      background: rgba(255, 255, 255, 0.96);
+      background: var(--white);
       color: var(--ink);
       box-shadow: var(--shadow);
-      overflow: hidden;
     }
 
-    .screen-bar {
+    .browser-bar {
       display: flex;
+      align-items: center;
       gap: 7px;
       padding: 12px;
-      background: #e2e8f0;
-      border-bottom: 1px solid #cbd5e1;
+      background: #e5e7eb;
+      border-bottom: 1px solid #d1d5db;
     }
 
-    .dot {
+    .browser-dot {
       width: 10px;
       height: 10px;
       border-radius: 999px;
-      background: var(--red);
+      background: #ef4444;
     }
 
-    .dot:nth-child(2) {
-      background: var(--amber);
+    .browser-dot:nth-child(2) {
+      background: #f59e0b;
     }
 
-    .dot:nth-child(3) {
-      background: var(--green);
+    .browser-dot:nth-child(3) {
+      background: #22c55e;
     }
 
-    .screen-body {
+    .browser-body {
       padding: 24px;
     }
 
-    .mini-title {
-      margin: 0 0 14px;
-      font-size: 25px;
-      line-height: 1.35;
+    .mock-kicker {
+      color: var(--blue);
+      font-size: 12px;
+      font-weight: 900;
     }
 
-    .mini-line {
+    .mock-title {
+      margin: 9px 0 12px;
+      font-size: 28px;
+      line-height: 1.25;
+    }
+
+    .mock-line {
       height: 10px;
+      margin: 10px 0;
       border-radius: 999px;
-      background: #e2e8f0;
-      margin: 12px 0;
+      background: #e5e7eb;
     }
 
-    .mini-line:nth-of-type(2) {
-      width: 78%;
+    .mock-line.short {
+      width: 68%;
     }
 
-    .mini-line:nth-of-type(3) {
-      width: 58%;
-    }
-
-    .mini-grid {
+    .mock-grid {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: 1fr 1fr;
       gap: 12px;
       margin-top: 22px;
     }
 
-    .mini-card {
-      min-height: 92px;
-      border-radius: 8px;
-      background: #f1f5f9;
-      border: 1px solid #e2e8f0;
+    .mock-card {
+      min-height: 100px;
       padding: 14px;
-    }
-
-    .mini-card b {
-      display: block;
-      font-size: 22px;
-      color: #0891b2;
-    }
-
-    .code-chip {
-      position: absolute;
-      left: 0;
-      bottom: 34px;
-      width: min(330px, 88%);
-      padding: 18px;
+      border: 1px solid #e5e7eb;
       border-radius: 8px;
-      background: rgba(2, 6, 23, 0.88);
-      border: 1px solid rgba(148, 163, 184, 0.28);
+      background: #f9fafb;
+    }
+
+    .mock-card strong {
+      display: block;
+      color: var(--blue);
+      font-size: 22px;
+      line-height: 1.2;
+    }
+
+    .phone {
+      position: absolute;
+      left: 6px;
+      bottom: 24px;
+      width: 160px;
+      padding: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      border-radius: 20px;
+      background: #020617;
       box-shadow: var(--shadow);
-      color: #bae6fd;
-      font-family: Consolas, Monaco, monospace;
-      font-size: 14px;
+    }
+
+    .phone-screen {
+      min-height: 250px;
+      padding: 16px 12px;
+      border-radius: 14px;
+      background: linear-gradient(180deg, #ffffff, #eef2ff);
+      color: var(--ink);
+    }
+
+    .phone-pill {
+      width: 44px;
+      height: 5px;
+      margin: 0 auto 16px;
+      border-radius: 999px;
+      background: #cbd5e1;
+    }
+
+    .phone-title {
+      font-size: 18px;
+      line-height: 1.3;
+      font-weight: 900;
+    }
+
+    .phone-button {
+      margin-top: 18px;
+      padding: 9px;
+      border-radius: 8px;
+      color: var(--white);
+      background: var(--blue);
+      text-align: center;
+      font-size: 12px;
+      font-weight: 900;
     }
 
     .section {
-      padding: 86px 0;
+      padding: 88px 0;
+    }
+
+    .section.alt {
+      background: var(--white);
+    }
+
+    .section.dark {
+      color: var(--white);
+      background: var(--navy);
     }
 
     .container {
@@ -353,158 +387,418 @@
       margin: 0 auto;
     }
 
-    .section-title {
-      max-width: 720px;
-      margin-bottom: 34px;
+    .section-head {
+      max-width: 760px;
+      margin-bottom: 36px;
     }
 
-    .section-title p {
-      margin: 10px 0 0;
-      color: var(--muted);
-      font-size: 17px;
+    .label {
+      margin: 0 0 10px;
+      color: var(--blue);
+      font-size: 13px;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .dark .label {
+      color: #93c5fd;
     }
 
     h2 {
       margin: 0;
       font-size: clamp(30px, 4vw, 46px);
-      line-height: 1.18;
+      line-height: 1.22;
       letter-spacing: 0;
     }
 
-    .feature-grid {
+    .section-head p {
+      margin: 12px 0 0;
+      color: var(--muted);
+      font-size: 17px;
+    }
+
+    .dark .section-head p {
+      color: #cbd5e1;
+    }
+
+    .problem-grid,
+    .service-grid,
+    .reason-grid,
+    .price-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 18px;
     }
 
-    .feature {
+    .card {
       padding: 26px;
-      border-radius: 8px;
       border: 1px solid var(--line);
+      border-radius: 8px;
       background: var(--white);
-      box-shadow: 0 12px 30px rgba(15, 23, 42, 0.06);
+      box-shadow: 0 14px 34px rgba(17, 24, 39, 0.06);
     }
 
-    .feature-icon {
+    .card h3 {
+      margin: 0 0 10px;
+      font-size: 20px;
+      line-height: 1.35;
+    }
+
+    .card p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .icon {
       width: 44px;
       height: 44px;
       display: grid;
       place-items: center;
-      border-radius: 8px;
       margin-bottom: 18px;
-      color: var(--navy);
-      background: #cffafe;
+      border-radius: 8px;
+      color: var(--blue-dark);
+      background: var(--sky);
       font-weight: 900;
     }
 
-    .feature:nth-child(2) .feature-icon {
-      background: #dcfce7;
+    .service-card {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
     }
 
-    .feature:nth-child(3) .feature-icon {
-      background: #fef3c7;
-    }
-
-    .feature h3 {
-      margin: 0 0 10px;
-      font-size: 20px;
-    }
-
-    .feature p {
+    .service-list,
+    .check-list {
       margin: 0;
+      padding: 0;
+      list-style: none;
+      display: grid;
+      gap: 9px;
+      color: var(--soft-ink);
+    }
+
+    .service-list li,
+    .check-list li {
+      position: relative;
+      padding-left: 22px;
+    }
+
+    .service-list li::before,
+    .check-list li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0.72em;
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: var(--blue);
+    }
+
+    .works-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+
+    .work-card {
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--white);
+      box-shadow: 0 14px 34px rgba(17, 24, 39, 0.06);
+    }
+
+    .work-visual {
+      min-height: 220px;
+      padding: 24px;
+      background:
+        radial-gradient(circle at 82% 20%, rgba(37, 99, 235, 0.24), transparent 32%),
+        linear-gradient(135deg, #f8fafc, #dbeafe);
+    }
+
+    .work-window {
+      height: 170px;
+      padding: 16px;
+      border: 1px solid #cbd5e1;
+      border-radius: 8px;
+      background: var(--white);
+    }
+
+    .work-title {
+      width: 70%;
+      height: 18px;
+      margin-bottom: 16px;
+      border-radius: 999px;
+      background: var(--blue);
+    }
+
+    .work-row {
+      height: 10px;
+      margin: 10px 0;
+      border-radius: 999px;
+      background: #e5e7eb;
+    }
+
+    .work-row.short {
+      width: 56%;
+    }
+
+    .work-body {
+      padding: 24px;
+    }
+
+    .work-body h3 {
+      margin: 0 0 8px;
+      font-size: 22px;
+    }
+
+    .work-body p {
+      margin: 0 0 16px;
       color: var(--muted);
     }
 
-    .band {
-      background: var(--navy);
-      color: var(--white);
+    .tag-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
     }
 
-    .works {
-      display: grid;
-      grid-template-columns: 0.9fr 1.1fr;
-      gap: 28px;
-      align-items: stretch;
+    .tag {
+      padding: 6px 9px;
+      border-radius: 999px;
+      color: var(--blue-dark);
+      background: #dbeafe;
+      font-size: 12px;
+      font-weight: 900;
     }
 
-    .work-panel {
-      padding: 30px;
-      border-radius: 8px;
-      background: #12213a;
-      border: 1px solid rgba(255, 255, 255, 0.12);
+    .reason-grid .card {
+      background: #162033;
+      border-color: rgba(255, 255, 255, 0.12);
     }
 
-    .work-panel p {
+    .reason-grid .card p {
       color: #cbd5e1;
     }
 
-    .timeline {
+    .reason-grid .icon {
+      color: var(--white);
+      background: rgba(37, 99, 235, 0.7);
+    }
+
+    .flow {
       display: grid;
       gap: 14px;
     }
 
-    .step {
+    .flow-step {
       display: grid;
-      grid-template-columns: 52px 1fr;
-      gap: 16px;
-      padding: 18px;
+      grid-template-columns: 70px 1fr;
+      gap: 18px;
+      align-items: start;
+      padding: 22px;
+      border: 1px solid var(--line);
       border-radius: 8px;
-      background: rgba(255, 255, 255, 0.08);
-      border: 1px solid rgba(255, 255, 255, 0.12);
+      background: var(--white);
+      box-shadow: 0 12px 28px rgba(17, 24, 39, 0.05);
     }
 
-    .step-number {
-      width: 42px;
-      height: 42px;
+    .step-num {
+      width: 52px;
+      height: 52px;
       display: grid;
       place-items: center;
       border-radius: 8px;
-      background: var(--cyan);
-      color: var(--navy);
+      color: var(--white);
+      background: var(--navy);
       font-weight: 900;
     }
 
-    .step h3 {
-      margin: 0 0 4px;
-      font-size: 18px;
+    .flow-step h3 {
+      margin: 0 0 5px;
+      font-size: 20px;
     }
 
-    .step p {
+    .flow-step p {
       margin: 0;
-      color: #cbd5e1;
+      color: var(--muted);
     }
 
-    .contact {
+    .profile {
       display: grid;
-      grid-template-columns: 1fr auto;
-      gap: 26px;
-      align-items: center;
-      padding: 34px;
+      grid-template-columns: 0.82fr 1.18fr;
+      gap: 28px;
+      align-items: stretch;
+    }
+
+    .profile-photo {
+      min-height: 400px;
+      display: grid;
+      place-items: center;
+      border-radius: 8px;
+      color: var(--white);
+      background:
+        radial-gradient(circle at 74% 22%, rgba(96, 165, 250, 0.46), transparent 34%),
+        linear-gradient(135deg, #111827, #1e3a8a);
+      box-shadow: var(--shadow);
+    }
+
+    .profile-photo span {
+      width: 140px;
+      height: 140px;
+      display: grid;
+      place-items: center;
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.08);
+      font-size: 52px;
+      font-weight: 900;
+    }
+
+    .profile-body {
+      padding: 32px;
+      border: 1px solid var(--line);
       border-radius: 8px;
       background: var(--white);
-      border: 1px solid var(--line);
-      box-shadow: 0 16px 42px rgba(15, 23, 42, 0.08);
     }
 
-    .contact h2 {
-      font-size: clamp(28px, 4vw, 42px);
+    .profile-body h2 {
+      margin-bottom: 14px;
     }
 
-    .contact p {
+    .profile-body p {
+      color: var(--soft-ink);
+    }
+
+    .price-card {
+      display: flex;
+      flex-direction: column;
+      min-height: 100%;
+    }
+
+    .price {
+      margin: 12px 0 16px;
+      font-size: 32px;
+      line-height: 1.2;
+      font-weight: 900;
+    }
+
+    .price small {
       color: var(--muted);
-      margin: 10px 0 0;
+      font-size: 14px;
+      font-weight: 700;
     }
 
-    .button-dark {
-      background: var(--navy);
+    .note {
+      margin-top: 18px;
+      padding: 16px;
+      border: 1px solid #fed7aa;
+      border-radius: 8px;
+      color: #9a3412;
+      background: var(--cream);
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .contact-layout {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 24px;
+      align-items: start;
+    }
+
+    .contact-panel {
+      padding: 30px;
+      border-radius: 8px;
+      background: var(--white);
+      color: var(--ink);
+      box-shadow: var(--shadow);
+    }
+
+    .contact-panel h2 {
+      margin-bottom: 12px;
+    }
+
+    .contact-panel p {
+      color: var(--soft-ink);
+    }
+
+    .contact-methods {
+      margin-top: 22px;
+      display: grid;
+      gap: 12px;
+    }
+
+    .contact-method {
+      padding: 14px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #f9fafb;
+    }
+
+    .contact-method strong {
+      display: block;
+      margin-bottom: 3px;
+    }
+
+    .contact-method span {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .form {
+      display: grid;
+      gap: 14px;
+    }
+
+    .field {
+      display: grid;
+      gap: 6px;
+    }
+
+    .field label {
+      font-weight: 900;
+      color: var(--soft-ink);
+      font-size: 14px;
+    }
+
+    .field input,
+    .field select,
+    .field textarea {
+      width: 100%;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 12px 13px;
+      color: var(--ink);
+      background: var(--white);
+    }
+
+    .field textarea {
+      min-height: 150px;
+      resize: vertical;
+    }
+
+    .form-help {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .button-submit {
+      width: 100%;
       color: var(--white);
-      min-width: 180px;
+      background: var(--blue);
+    }
+
+    .button-submit:hover {
+      background: var(--blue-dark);
     }
 
     .site-footer {
       padding: 30px 0;
-      border-top: 1px solid var(--line);
-      color: var(--muted);
+      color: #d1d5db;
+      background: #0b1220;
       font-size: 14px;
     }
 
@@ -528,7 +822,7 @@
       transform: translateY(0);
     }
 
-    @media (max-width: 860px) {
+    @media (max-width: 900px) {
       .nav {
         min-height: 64px;
       }
@@ -537,45 +831,37 @@
         display: none;
       }
 
-      .hero {
-        min-height: auto;
+      .hero-inner,
+      .profile,
+      .contact-layout,
+      .works-layout {
+        grid-template-columns: 1fr;
       }
 
       .hero-inner {
-        grid-template-columns: 1fr;
         min-height: auto;
-        padding: 72px 0;
-        gap: 34px;
+        padding: 74px 0;
       }
 
-      .showcase {
-        min-height: 360px;
+      .hero-visual {
+        min-height: 430px;
       }
 
-      .screen {
-        position: relative;
-        inset: auto;
-        width: 100%;
-      }
-
-      .code-chip {
-        left: 18px;
-        bottom: 0;
-      }
-
-      .feature-grid,
-      .works,
-      .contact {
+      .problem-grid,
+      .service-grid,
+      .reason-grid,
+      .price-grid {
         grid-template-columns: 1fr;
-      }
-
-      .contact {
-        padding: 26px;
       }
     }
 
-    @media (max-width: 560px) {
-      .hero-stats {
+    @media (max-width: 620px) {
+      .section {
+        padding: 66px 0;
+      }
+
+      .trust-strip,
+      .mock-grid {
         grid-template-columns: 1fr;
       }
 
@@ -587,12 +873,32 @@
         width: 100%;
       }
 
-      .mini-grid {
+      .hero-visual {
+        min-height: auto;
+      }
+
+      .browser,
+      .phone {
+        position: relative;
+        inset: auto;
+        width: 100%;
+      }
+
+      .phone {
+        margin-top: 16px;
+        border-radius: 8px;
+      }
+
+      .phone-screen {
+        min-height: 180px;
+      }
+
+      .flow-step {
         grid-template-columns: 1fr;
       }
 
-      .section {
-        padding: 64px 0;
+      .profile-photo {
+        min-height: 280px;
       }
     }
   </style>
@@ -605,146 +911,408 @@
         <span>HACOT WEB</span>
       </a>
       <div class="nav-links">
-        <a href="#about">特徴</a>
-        <a href="#works">制作方針</a>
-        <a href="#contact">連絡</a>
+        <a href="#service">できること</a>
+        <a href="#works">制作実績</a>
+        <a href="#price">料金</a>
+        <a class="nav-cta" href="#contact">相談する</a>
       </div>
     </nav>
   </header>
 
   <main id="top">
-    <section class="hero">
+    <section class="hero" id="hero">
       <div class="hero-inner">
         <div>
-          <span class="eyebrow"><span class="pulse"></span> 個人・小規模事業者向けHP制作</span>
+          <span class="eyebrow"><span class="eyebrow-dot"></span> 個人・小規模事業者向けHP制作</span>
           <h1>事業の魅力を整理し<br>相談につながるホームページへ</h1>
-          <p class="lead">
+          <p class="hero-lead">
             個人・小規模事業者向けに内容整理・デザイン・スマホ対応・公開まで一貫して制作します。
             「何を載せればいいかわからない」段階から選ばれる理由が伝わるページに整えます。
           </p>
           <div class="hero-actions">
-            <a class="button button-primary" href="#about">制作実績を見る</a>
+            <a class="button button-primary" href="#works">制作実績を見る</a>
             <a class="button button-secondary" href="#contact">相談してみる</a>
           </div>
-          <div class="hero-stats" aria-label="サイトの特徴">
-            <div class="stat">
-              <strong>HTML</strong>
-              <span>構造をわかりやすく</span>
-            </div>
-            <div class="stat">
-              <strong>CSS</strong>
-              <span>印象に残る見た目</span>
-            </div>
-            <div class="stat">
-              <strong>JS</strong>
-              <span>動きと操作感を追加</span>
-            </div>
+          <div class="trust-strip" aria-label="対応内容">
+            <div class="trust-item">内容整理から相談可能</div>
+            <div class="trust-item">スマホ対応を標準制作</div>
+            <div class="trust-item">公開と検索初期設定まで対応</div>
           </div>
         </div>
 
-        <div class="showcase" aria-label="ホームページのプレビュー風ビジュアル">
-          <div class="screen">
-            <div class="screen-bar">
-              <span class="dot"></span>
-              <span class="dot"></span>
-              <span class="dot"></span>
+        <div class="hero-visual" aria-label="制作するホームページのイメージ">
+          <div class="browser">
+            <div class="browser-bar">
+              <span class="browser-dot"></span>
+              <span class="browser-dot"></span>
+              <span class="browser-dot"></span>
             </div>
-            <div class="screen-body">
-              <h2 class="mini-title">検索で見つかる、印象で残る。</h2>
-              <div class="mini-line"></div>
-              <div class="mini-line"></div>
-              <div class="mini-line"></div>
-              <div class="mini-grid">
-                <div class="mini-card"><b>01</b>公開</div>
-                <div class="mini-card"><b>02</b>改善</div>
-                <div class="mini-card"><b>03</b>発信</div>
-                <div class="mini-card"><b>04</b>成長</div>
+            <div class="browser-body">
+              <div class="mock-kicker">WEB SITE DESIGN</div>
+              <div class="mock-title">選ばれる理由が伝わるトップページ</div>
+              <div class="mock-line"></div>
+              <div class="mock-line short"></div>
+              <div class="mock-grid">
+                <div class="mock-card"><strong>01</strong>サービス整理</div>
+                <div class="mock-card"><strong>02</strong>導線設計</div>
+                <div class="mock-card"><strong>03</strong>スマホ対応</div>
+                <div class="mock-card"><strong>04</strong>公開設定</div>
               </div>
             </div>
           </div>
-          <div class="code-chip">
-            &lt;title&gt;HACOT WEB&lt;/title&gt;<br>
-            &lt;h1&gt;相談につながるホームページへ&lt;/h1&gt;
+          <div class="phone" aria-hidden="true">
+            <div class="phone-screen">
+              <div class="phone-pill"></div>
+              <div class="phone-title">スマホでも読みやすく相談しやすい構成へ</div>
+              <div class="phone-button">相談してみる</div>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="section" id="about">
+    <section class="section alt" id="problem">
       <div class="container">
-        <div class="section-title reveal">
-          <h2>ただ置くだけではなく、伝わるトップページへ。</h2>
+        <div class="section-head reveal">
+          <p class="label">01 Problem</p>
+          <h2>発注者は見た目だけで依頼を決めません</h2>
           <p>
-            目を引くファーストビュー、検索で伝わるタイトル、スマホでも読みやすい構成をまとめました。
+            発注者は「この人に任せて大丈夫か」を見ています。HACOT WEBは不安を減らすために内容整理と導線設計を制作の中心に置きます。
           </p>
         </div>
-        <div class="feature-grid">
-          <article class="feature reveal">
-            <div class="feature-icon">A</div>
-            <h3>最初の3秒で印象づける</h3>
-            <p>大きな見出し、強い背景、はっきりした導線で、開いた瞬間に何のサイトか伝えます。</p>
+        <div class="problem-grid">
+          <article class="card reveal">
+            <div class="icon">悩</div>
+            <h3>何を載せればいいかわからない</h3>
+            <p>サービス内容・強み・対象顧客を整理し、ページに載せる情報を一緒に決めます。</p>
           </article>
-          <article class="feature reveal">
-            <div class="feature-icon">B</div>
-            <h3>検索に向けた言葉設計</h3>
-            <p>タイトル、説明文、見出しに「HACOT WEB」と制作内容を入れ、何を依頼できるか伝わりやすくします。</p>
+          <article class="card reveal">
+            <div class="icon">信</div>
+            <h3>信頼される見せ方がわからない</h3>
+            <p>プロフィール・実績・制作の流れ・料金を整理し、初めて見た人が安心できる構成にします。</p>
           </article>
-          <article class="feature reveal">
-            <div class="feature-icon">C</div>
-            <h3>育てやすい1ファイル構成</h3>
-            <p>最初は1つのHTMLで管理し、慣れてきたらCSSやJavaScriptを別ファイルに分けられます。</p>
+          <article class="card reveal">
+            <div class="icon">導</div>
+            <h3>問い合わせにつながらない</h3>
+            <p>ボタンの位置や文章の順番を設計し、相談まで迷わず進めるトップページを作ります。</p>
           </article>
         </div>
       </div>
     </section>
 
-    <section class="section band" id="works">
+    <section class="section" id="service">
       <div class="container">
-        <div class="works">
-          <div class="work-panel reveal">
-            <h2>次に足すなら、実績・プロフィール・お問い合わせ。</h2>
-            <p>
-              トップページは入口です。今後は自己紹介、制作物、活動内容、問い合わせ先を追加すると、
-              検索した人が「何者か」「何をしているか」を判断しやすくなります。
-            </p>
+        <div class="section-head reveal">
+          <p class="label">02 Service</p>
+          <h2>HACOT WEBは小さな事業のWeb制作を一貫して支えます</h2>
+          <p>
+            主語はHACOT WEBです。HACOT WEBは内容を整理し、画面を設計し、公開後に使える状態まで制作します。
+          </p>
+        </div>
+        <div class="service-grid">
+          <article class="card service-card reveal">
+            <div>
+              <div class="icon">整</div>
+              <h3>内容整理</h3>
+              <p>ページに載せる内容を制作前に整理します。</p>
+            </div>
+            <ul class="service-list">
+              <li>サービス内容の整理</li>
+              <li>強みと対象顧客の整理</li>
+              <li>見出しと文章のたたき台作成</li>
+            </ul>
+          </article>
+          <article class="card service-card reveal">
+            <div>
+              <div class="icon">作</div>
+              <h3>デザイン・コーディング</h3>
+              <p>見た目と読みやすさを両立したページを作ります。</p>
+            </div>
+            <ul class="service-list">
+              <li>トップページ制作</li>
+              <li>スマホ対応</li>
+              <li>HTML/CSS/JavaScript実装</li>
+            </ul>
+          </article>
+          <article class="card service-card reveal">
+            <div>
+              <div class="icon">公</div>
+              <h3>公開・初期設定</h3>
+              <p>作って終わりではなく公開まで進めます。</p>
+            </div>
+            <ul class="service-list">
+              <li>GitHub Pages公開</li>
+              <li>検索向けタイトル設定</li>
+              <li>Search Console初期設定</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt" id="works">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="label">03 Works</p>
+          <h2>制作実績は完成イメージを判断する材料です</h2>
+          <p>
+            実案件が増えるまでは自主制作を掲載します。自主制作は「できること」を見せるための実績として明記します。
+          </p>
+        </div>
+        <div class="works-layout">
+          <article class="work-card reveal">
+            <div class="work-visual">
+              <div class="work-window">
+                <div class="work-title"></div>
+                <div class="work-row"></div>
+                <div class="work-row"></div>
+                <div class="work-row short"></div>
+              </div>
+            </div>
+            <div class="work-body">
+              <h3>小規模店舗向けトップページ</h3>
+              <p>店舗の雰囲気・サービス内容・予約導線を1ページにまとめる想定で制作したサンプルです。</p>
+              <div class="tag-list">
+                <span class="tag">自主制作</span>
+                <span class="tag">スマホ対応</span>
+                <span class="tag">問い合わせ導線</span>
+              </div>
+            </div>
+          </article>
+          <article class="work-card reveal">
+            <div class="work-visual">
+              <div class="work-window">
+                <div class="work-title"></div>
+                <div class="work-row"></div>
+                <div class="work-row short"></div>
+                <div class="work-row"></div>
+              </div>
+            </div>
+            <div class="work-body">
+              <h3>個人サービス向けLP</h3>
+              <p>サービスの強み・料金・相談フォームまでを縦長に設計したランディングページのサンプルです。</p>
+              <div class="tag-list">
+                <span class="tag">自主制作</span>
+                <span class="tag">LP設計</span>
+                <span class="tag">料金掲載</span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section dark" id="reason">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="label">04 Reason</p>
+          <h2>選ばれる理由は制作前の整理力にあります</h2>
+          <p>
+            HACOT WEBは画面だけを作りません。HACOT WEBは事業の魅力を整理し、言葉と導線を整えます。
+          </p>
+        </div>
+        <div class="reason-grid">
+          <article class="card reveal">
+            <div class="icon">1</div>
+            <h3>発注前の不安を減らします</h3>
+            <p>制作範囲・流れ・料金目安を先に見せます。発注者は依頼後の流れを想像できます。</p>
+          </article>
+          <article class="card reveal">
+            <div class="icon">2</div>
+            <h3>情報を必要な順に並べます</h3>
+            <p>トップページは営業資料です。HACOT WEBは伝える順番を設計し、読み手を相談まで案内します。</p>
+          </article>
+          <article class="card reveal">
+            <div class="icon">3</div>
+            <h3>公開後も使いやすくします</h3>
+            <p>更新しやすい構成で作ります。将来の実績追加や料金変更にも対応しやすいページにします。</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="flow">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="label">05 Flow</p>
+          <h2>制作の流れは依頼者の不安を下げます</h2>
+          <p>
+            流れが見えると依頼者は安心できます。HACOT WEBは相談から公開まで段階を分けて進めます。
+          </p>
+        </div>
+        <div class="flow">
+          <div class="flow-step reveal">
+            <div class="step-num">01</div>
+            <div>
+              <h3>相談・ヒアリング</h3>
+              <p>目的・掲載内容・予算感を確認します。まだ内容が固まっていない状態でも相談できます。</p>
+            </div>
           </div>
-          <div class="timeline">
-            <div class="step reveal">
-              <div class="step-number">1</div>
-              <div>
-                <h3>タイトルを決める</h3>
-                <p>検索で狙う独自ワードを決め、ページ全体で統一します。</p>
-              </div>
+          <div class="flow-step reveal">
+            <div class="step-num">02</div>
+            <div>
+              <h3>構成と文章の整理</h3>
+              <p>誰に何を伝えるかを決めます。見出し・説明文・導線のたたき台を作ります。</p>
             </div>
-            <div class="step reveal">
-              <div class="step-number">2</div>
-              <div>
-                <h3>内容を増やす</h3>
-                <p>プロフィール、作品、写真、活動記録などの具体情報を追加します。</p>
-              </div>
+          </div>
+          <div class="flow-step reveal">
+            <div class="step-num">03</div>
+            <div>
+              <h3>デザイン・実装</h3>
+              <p>PCとスマホの見え方を考えて制作します。HTML/CSS/JavaScriptでページを形にします。</p>
             </div>
-            <div class="step reveal">
-              <div class="step-number">3</div>
-              <div>
-                <h3>Search Consoleで再申請</h3>
-                <p>更新後にURL検査からインデックス登録をリクエストします。</p>
-              </div>
+          </div>
+          <div class="flow-step reveal">
+            <div class="step-num">04</div>
+            <div>
+              <h3>確認・修正</h3>
+              <p>表示崩れ・文章・ボタン導線を確認します。公開前に必要な修正を反映します。</p>
+            </div>
+          </div>
+          <div class="flow-step reveal">
+            <div class="step-num">05</div>
+            <div>
+              <h3>公開・検索初期設定</h3>
+              <p>GitHub Pagesなどで公開します。必要に応じてSearch Consoleの初期設定も支援します。</p>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="section" id="contact">
+    <section class="section alt" id="profile">
       <div class="container">
-        <div class="contact reveal">
-          <div>
-            <h2>ここから本番用に育てていきます。</h2>
-            <p>
-              サイト名、紹介文、掲載したい内容が決まったら、このトップページを本番仕様に調整できます。
-            </p>
+        <div class="profile">
+          <div class="profile-photo reveal" aria-label="HACOT WEBのプロフィール画像枠">
+            <span>H</span>
           </div>
-          <a class="button button-dark" href="#top">上に戻る</a>
+          <div class="profile-body reveal">
+            <p class="label">06 Profile</p>
+            <h2>HACOT WEBは小さく始めたい人のWeb制作を支えます</h2>
+            <p>
+              HACOT WEBは個人・小規模事業者に向けてホームページを制作します。
+              私は「何をどう見せれば依頼につながるか」を考えながらページを設計します。
+            </p>
+            <p>
+              私が重視することは派手な演出ではありません。私が重視することは情報が伝わる順番です。
+              読み手が事業内容を理解し、安心し、相談できる状態を作ります。
+            </p>
+            <ul class="check-list">
+              <li>HTML/CSS/JavaScriptでの静的サイト制作</li>
+              <li>スマホ対応のトップページ制作</li>
+              <li>GitHub Pagesでの公開支援</li>
+              <li>検索に向けた基本的なタイトル・説明文設定</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="price">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="label">07 Price</p>
+          <h2>料金目安は相談前の迷いを減らします</h2>
+          <p>
+            金額は内容によって変わります。目安を先に出すことで、依頼者は相談するか判断できます。
+          </p>
+        </div>
+        <div class="price-grid">
+          <article class="card price-card reveal">
+            <h3>ライト</h3>
+            <p>まずは名刺代わりの1ページが欲しい方向けです。</p>
+            <div class="price">30,000円〜<small> 税込目安</small></div>
+            <ul class="service-list">
+              <li>トップページ1枚</li>
+              <li>スマホ対応</li>
+              <li>GitHub Pages公開</li>
+            </ul>
+          </article>
+          <article class="card price-card reveal">
+            <h3>スタンダード</h3>
+            <p>事業内容と問い合わせ導線を整えたい方向けです。</p>
+            <div class="price">60,000円〜<small> 税込目安</small></div>
+            <ul class="service-list">
+              <li>トップページ1枚</li>
+              <li>内容整理サポート</li>
+              <li>問い合わせ導線設計</li>
+              <li>検索初期設定</li>
+            </ul>
+          </article>
+          <article class="card price-card reveal">
+            <h3>カスタム</h3>
+            <p>複数ページやフォーム連携まで相談したい方向けです。</p>
+            <div class="price">要相談<small> 内容確認後</small></div>
+            <ul class="service-list">
+              <li>複数ページ制作</li>
+              <li>Googleフォーム連携</li>
+              <li>実績追加ページ</li>
+              <li>公開後の修正相談</li>
+            </ul>
+          </article>
+        </div>
+        <div class="note reveal">
+          表示価格は仮の目安です。正式な料金は制作範囲・ページ数・素材準備の有無によって調整します。
+        </div>
+      </div>
+    </section>
+
+    <section class="section dark" id="contact">
+      <div class="container">
+        <div class="contact-layout">
+          <div class="contact-panel reveal">
+            <p class="label">08 Contact</p>
+            <h2>まずは相談内容を送ってください</h2>
+            <p>
+              相談は完成イメージが固まっていなくても大丈夫です。
+              HACOT WEBは目的と載せたい内容を確認し、必要なページ構成を提案します。
+            </p>
+            <div class="contact-methods">
+              <div class="contact-method">
+                <strong>相談内容</strong>
+                <span>新規制作・リニューアル・ポートフォリオ制作など</span>
+              </div>
+              <div class="contact-method">
+                <strong>返信目安</strong>
+                <span>通常2〜3日以内</span>
+              </div>
+              <div class="contact-method">
+                <strong>連絡方法</strong>
+                <span>下のフォームからメールを作成できます</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="contact-panel reveal">
+            <form class="form" id="contactForm">
+              <div class="field">
+                <label for="name">お名前</label>
+                <input id="name" name="name" type="text" placeholder="山田 太郎" required>
+              </div>
+              <div class="field">
+                <label for="email">メールアドレス</label>
+                <input id="email" name="email" type="email" placeholder="example@example.com" required>
+              </div>
+              <div class="field">
+                <label for="type">相談内容</label>
+                <select id="type" name="type" required>
+                  <option value="">選択してください</option>
+                  <option value="新規ホームページ制作">新規ホームページ制作</option>
+                  <option value="既存ページの改善">既存ページの改善</option>
+                  <option value="ポートフォリオ制作">ポートフォリオ制作</option>
+                  <option value="その他">その他</option>
+                </select>
+              </div>
+              <div class="field">
+                <label for="message">相談内容の詳細</label>
+                <textarea id="message" name="message" placeholder="作りたいページの目的や載せたい内容を書いてください" required></textarea>
+              </div>
+              <p class="form-help">
+                送信ボタンを押すとメール作成画面が開きます。公開前に送信先メールアドレスを自分のものへ変更してください。
+              </p>
+              <button class="button button-submit" type="submit">相談内容をメールで送る</button>
+            </form>
+          </div>
         </div>
       </div>
     </section>
@@ -753,13 +1321,12 @@
   <footer class="site-footer">
     <div class="footer-inner">
       <span>&copy; 2026 HACOT WEB</span>
-      <span>Built with HTML / CSS / JavaScript</span>
+      <span>HTML / CSS / JavaScript</span>
     </div>
   </footer>
 
   <script>
     const revealTargets = document.querySelectorAll(".reveal");
-
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
@@ -770,6 +1337,28 @@
     }, { threshold: 0.16 });
 
     revealTargets.forEach((target) => observer.observe(target));
+
+    const contactForm = document.querySelector("#contactForm");
+    contactForm.addEventListener("submit", (event) => {
+      event.preventDefault();
+
+      const formData = new FormData(contactForm);
+      const name = formData.get("name");
+      const email = formData.get("email");
+      const type = formData.get("type");
+      const message = formData.get("message");
+
+      const to = "your-email@example.com";
+      const subject = encodeURIComponent(`HACOT WEBへの相談：${type}`);
+      const body = encodeURIComponent(
+        `お名前：${name}\n` +
+        `メールアドレス：${email}\n` +
+        `相談内容：${type}\n\n` +
+        `詳細：\n${message}`
+      );
+
+      window.location.href = `mailto:${to}?subject=${subject}&body=${body}`;
+    });
   </script>
 </body>
 </html>
