@@ -59,6 +59,12 @@
       text-decoration: none;
     }
 
+    img,
+    svg {
+      max-width: 100%;
+      height: auto;
+    }
+
     button,
     input,
     textarea,
@@ -156,6 +162,7 @@
     .eyebrow {
       display: inline-flex;
       align-items: center;
+      flex-wrap: wrap;
       gap: 9px;
       padding: 8px 12px;
       border: 1px solid rgba(255, 255, 255, 0.18);
@@ -164,6 +171,13 @@
       color: #dbeafe;
       font-size: 13px;
       font-weight: 800;
+    }
+
+    .eyebrow-note {
+      color: rgba(219, 234, 254, 0.58);
+      font-size: 11px;
+      font-weight: 500;
+      line-height: 1.5;
     }
 
     .eyebrow-dot {
@@ -186,6 +200,9 @@
     .headline-line,
     .heading-line {
       display: block;
+      max-width: 100%;
+      word-break: keep-all;
+      overflow-wrap: normal;
     }
 
     .hero-lead {
@@ -709,12 +726,15 @@
 
     .price {
       margin: 12px 0 16px;
-      font-size: 32px;
+      font-size: clamp(28px, 3vw, 32px);
       line-height: 1.2;
       font-weight: 900;
+      word-break: keep-all;
     }
 
     .price small {
+      display: block;
+      margin-top: 4px;
       color: var(--muted);
       font-size: 14px;
       font-weight: 700;
@@ -729,6 +749,8 @@
       background: var(--cream);
       font-size: 14px;
       font-weight: 700;
+      text-wrap: pretty;
+      overflow-wrap: break-word;
     }
 
     .contact-layout {
@@ -897,6 +919,15 @@
       }
     }
 
+    @media (min-width: 901px) and (max-width: 1120px) {
+      .problem-grid,
+      .service-grid,
+      .reason-grid,
+      .price-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
     @media (max-width: 620px) {
       .section {
         padding: 66px 0;
@@ -928,6 +959,14 @@
 
       .card {
         padding: 22px;
+      }
+
+      .price-card {
+        gap: 2px;
+      }
+
+      .price {
+        font-size: clamp(26px, 8vw, 30px);
       }
 
       .trust-strip,
@@ -971,6 +1010,87 @@
         min-height: 280px;
       }
     }
+
+    @media (max-width: 430px) {
+      .section {
+        padding: 58px 0;
+      }
+
+      .container,
+      .nav,
+      .hero-inner,
+      .footer-inner {
+        width: min(100% - 24px, 1120px);
+      }
+
+      h1 {
+        font-size: clamp(32px, 9vw, 38px);
+        line-height: 1.2;
+      }
+
+      h2 {
+        font-size: clamp(24px, 6.2vw, 28px);
+        line-height: 1.44;
+      }
+
+      .hero-lead,
+      .section-head p {
+        font-size: 15.5px;
+        line-height: 1.82;
+      }
+
+      .card,
+      .work-body,
+      .contact-panel,
+      .profile-body {
+        padding: 20px;
+      }
+
+      .price {
+        font-size: 27px;
+      }
+
+      .eyebrow {
+        align-items: flex-start;
+      }
+
+      .eyebrow-note {
+        flex-basis: 100%;
+        padding-left: 17px;
+      }
+    }
+
+    @media (max-width: 360px) {
+      .container,
+      .nav,
+      .hero-inner,
+      .footer-inner {
+        width: min(100% - 20px, 1120px);
+      }
+
+      h1 {
+        font-size: 31px;
+      }
+
+      h2 {
+        font-size: 23px;
+      }
+
+      .card,
+      .work-body,
+      .contact-panel,
+      .profile-body {
+        padding: 18px;
+      }
+
+      .price {
+        font-size: 25px;
+      }
+
+      .eyebrow-note {
+        font-size: 10.5px;
+      }
+    }
   </style>
 </head>
 <body>
@@ -993,7 +1113,11 @@
     <section class="hero" id="hero">
       <div class="hero-inner">
         <div>
-          <span class="eyebrow"><span class="eyebrow-dot"></span> 個人・小規模事業者向けHP制作</span>
+          <span class="eyebrow">
+            <span class="eyebrow-dot"></span>
+            個人・小規模事業者向けHP制作
+            <small class="eyebrow-note">このサイトはフィクションですが本当に依頼をすることはできます。</small>
+          </span>
           <h1>
             <span class="headline-line">魅力を整理し</span>
             <span class="headline-line">相談につながる</span>
