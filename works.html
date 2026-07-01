@@ -168,6 +168,7 @@
     }
 
     .work-card {
+      position: relative;
       display: block;
       overflow: hidden;
       border: 1px solid var(--line);
@@ -183,9 +184,17 @@
       box-shadow: 0 20px 46px rgba(17, 24, 39, 0.12);
     }
 
+    .work-link {
+      position: absolute;
+      inset: 0;
+      z-index: 3;
+    }
+
     .thumb {
+      position: relative;
       min-height: 230px;
       padding: 22px;
+      overflow: hidden;
       background:
         radial-gradient(circle at 82% 22%, rgba(37, 99, 235, 0.24), transparent 32%),
         linear-gradient(135deg, #f8fafc, #dbeafe);
@@ -204,12 +213,41 @@
     }
 
     .thumb-frame {
+      position: relative;
       height: 182px;
       padding: 16px;
+      overflow: hidden;
       border: 1px solid rgba(148, 163, 184, 0.7);
       border-radius: 8px;
       background: rgba(255, 255, 255, 0.9);
       box-shadow: 0 18px 36px rgba(17, 24, 39, 0.12);
+    }
+
+    .preview-frame {
+      padding: 0;
+      background: #ffffff;
+    }
+
+    .preview-frame iframe {
+      width: 1280px;
+      height: 900px;
+      border: 0;
+      transform: scale(0.28);
+      transform-origin: top left;
+      pointer-events: none;
+    }
+
+    .preview-badge {
+      position: absolute;
+      right: 14px;
+      bottom: 12px;
+      z-index: 2;
+      padding: 5px 8px;
+      border-radius: 999px;
+      color: var(--white);
+      background: rgba(17, 24, 39, 0.78);
+      font-size: 11px;
+      font-weight: 900;
     }
 
     .thumb.dark .thumb-frame {
@@ -347,6 +385,10 @@
         height: 150px;
       }
 
+      .preview-frame iframe {
+        transform: scale(0.24);
+      }
+
       .work-body {
         padding: 20px;
       }
@@ -386,13 +428,30 @@
     <section class="section">
       <div class="container">
         <div class="works-grid" aria-label="制作実績一覧">
-          <a class="work-card" href="index.html" target="_blank" rel="noopener noreferrer" aria-label="HACOT WEBを開く">
+          <article class="work-card">
+            <a class="work-link" href="https://hacot0600.github.io/medicine-note/" target="_blank" rel="noopener noreferrer" aria-label="Medicine Noteを開く"></a>
+            <div class="thumb" aria-hidden="true">
+              <div class="thumb-frame preview-frame">
+                <iframe src="https://hacot0600.github.io/medicine-note/" title="Medicine Noteのプレビュー" loading="lazy"></iframe>
+                <span class="preview-badge">Live preview</span>
+              </div>
+            </div>
+            <div class="work-body">
+              <h2>Medicine Note</h2>
+              <div class="tag-list">
+                <span class="tag">Webシステム</span>
+                <span class="tag">スマホ対応</span>
+                <span class="tag">GitHub Pages</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="work-card">
+            <a class="work-link" href="index.html" target="_blank" rel="noopener noreferrer" aria-label="HACOT WEBを開く"></a>
             <div class="thumb dark" aria-hidden="true">
-              <div class="thumb-frame">
-                <div class="thumb-bar"></div>
-                <div class="thumb-line"></div>
-                <div class="thumb-line"></div>
-                <div class="thumb-line short"></div>
+              <div class="thumb-frame preview-frame">
+                <iframe src="index.html" title="HACOT WEBのプレビュー" loading="lazy"></iframe>
+                <span class="preview-badge">Live preview</span>
               </div>
             </div>
             <div class="work-body">
@@ -403,28 +462,10 @@
                 <span class="tag">問い合わせ導線</span>
               </div>
             </div>
-          </a>
+          </article>
 
-          <a class="work-card" href="https://hacot0600.github.io/test-homepage/" target="_blank" rel="noopener noreferrer" aria-label="公開テストページを開く">
-            <div class="thumb" aria-hidden="true">
-              <div class="thumb-frame">
-                <div class="thumb-bar"></div>
-                <div class="thumb-line"></div>
-                <div class="thumb-line short"></div>
-                <div class="thumb-line"></div>
-              </div>
-            </div>
-            <div class="work-body">
-              <h2>公開テストページ</h2>
-              <div class="tag-list">
-                <span class="tag">GitHub Pages</span>
-                <span class="tag">公開テスト</span>
-                <span class="tag">Search Console</span>
-              </div>
-            </div>
-          </a>
-
-          <a class="work-card" href="index.html#contact" aria-label="次に掲載する実績の相談へ進む">
+          <article class="work-card">
+            <a class="work-link" href="index.html#contact" aria-label="次に掲載する実績の相談へ進む"></a>
             <div class="thumb green" aria-hidden="true">
               <div class="thumb-frame">
                 <div class="thumb-bar"></div>
@@ -441,7 +482,7 @@
                 <span class="tag">URL差し替え</span>
               </div>
             </div>
-          </a>
+          </article>
         </div>
 
         <div class="note">
