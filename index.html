@@ -542,6 +542,25 @@
       gap: 18px;
     }
 
+    .section-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 46px;
+      margin-top: 20px;
+      padding: 11px 16px;
+      border-radius: 8px;
+      color: var(--white);
+      background: var(--navy);
+      font-weight: 900;
+      transition: transform 180ms ease, box-shadow 180ms ease;
+    }
+
+    .section-link:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 14px 30px rgba(17, 24, 39, 0.16);
+    }
+
     .work-card {
       overflow: hidden;
       border: 1px solid var(--line);
@@ -1265,6 +1284,7 @@
           <p>
             実案件が増えるまでは自主制作を掲載します。自主制作は「できること」を見せるための実績として明記します。
           </p>
+          <a class="section-link" href="works.html">制作実績一覧を見る</a>
         </div>
         <div class="works-layout">
           <article class="work-card reveal">
