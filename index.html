@@ -787,6 +787,7 @@
 
     .button-submit {
       width: 100%;
+      margin-top: 18px;
       color: var(--white);
       background: var(--blue);
     }
@@ -1278,40 +1279,31 @@
               </div>
               <div class="contact-method">
                 <strong>連絡方法</strong>
-                <span>下のフォームからメールを作成できます</span>
+                <span>Googleフォームで相談内容を受け付けます</span>
               </div>
             </div>
           </div>
 
           <div class="contact-panel reveal">
-            <form class="form" id="contactForm">
-              <div class="field">
-                <label for="name">お名前</label>
-                <input id="name" name="name" type="text" placeholder="山田 太郎" required>
+            <p class="label">Google Form</p>
+            <h2>相談フォームを開く</h2>
+            <p>
+              お名前・連絡先・作りたいページの内容をGoogleフォームで送信できます。
+              回答はGoogleフォーム側で確認できます。
+            </p>
+            <div class="contact-methods">
+              <div class="contact-method">
+                <strong>フォームで確認する内容</strong>
+                <span>制作目的・希望内容・予算感・返信先など</span>
               </div>
-              <div class="field">
-                <label for="email">メールアドレス</label>
-                <input id="email" name="email" type="email" placeholder="example@example.com" required>
+              <div class="contact-method">
+                <strong>管理方法</strong>
+                <span>回答はGoogleフォームの回答タブで管理します</span>
               </div>
-              <div class="field">
-                <label for="type">相談内容</label>
-                <select id="type" name="type" required>
-                  <option value="">選択してください</option>
-                  <option value="新規ホームページ制作">新規ホームページ制作</option>
-                  <option value="既存ページの改善">既存ページの改善</option>
-                  <option value="ポートフォリオ制作">ポートフォリオ制作</option>
-                  <option value="その他">その他</option>
-                </select>
-              </div>
-              <div class="field">
-                <label for="message">相談内容の詳細</label>
-                <textarea id="message" name="message" placeholder="作りたいページの目的や載せたい内容を書いてください" required></textarea>
-              </div>
-              <p class="form-help">
-                送信ボタンを押すとメール作成画面が開きます。公開前に送信先メールアドレスを自分のものへ変更してください。
-              </p>
-              <button class="button button-submit" type="submit">相談内容をメールで送る</button>
-            </form>
+            </div>
+            <a class="button button-submit" href="https://forms.gle/gzqU7EVaWqqgCPC77" target="_blank" rel="noopener noreferrer">
+              Googleフォームで相談する
+            </a>
           </div>
         </div>
       </div>
@@ -1337,28 +1329,6 @@
     }, { threshold: 0.16 });
 
     revealTargets.forEach((target) => observer.observe(target));
-
-    const contactForm = document.querySelector("#contactForm");
-    contactForm.addEventListener("submit", (event) => {
-      event.preventDefault();
-
-      const formData = new FormData(contactForm);
-      const name = formData.get("name");
-      const email = formData.get("email");
-      const type = formData.get("type");
-      const message = formData.get("message");
-
-      const to = "your-email@example.com";
-      const subject = encodeURIComponent(`HACOT WEBへの相談：${type}`);
-      const body = encodeURIComponent(
-        `お名前：${name}\n` +
-        `メールアドレス：${email}\n` +
-        `相談内容：${type}\n\n` +
-        `詳細：\n${message}`
-      );
-
-      window.location.href = `mailto:${to}?subject=${subject}&body=${body}`;
-    });
   </script>
 </body>
 </html>
